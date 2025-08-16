@@ -6,7 +6,7 @@
 		title: '🧑‍💻 Frontend Developer',
 		location: '🏠 Istanbul, Turkey',
 		links: [
-			{ text: '📝 Resume', url: '#' },
+			{ text: '📝 Resume', url: '/resume.pdf' },
 			{ text: '🔗 LinkedIn', url: 'https://www.linkedin.com/in/selimyalinkilic/' },
 			{ text: '📸 Instagram', url: 'https://www.instagram.com/selimyalnklc/' },
 			{ text: '🐙 GitHub', url: 'https://github.com/selimyalinkilic' }

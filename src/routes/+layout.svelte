@@ -5,8 +5,11 @@
 </script>
 
 <svelte:head>
-	<title>Selim Yalınkılıç - Portfolio</title>
-	<meta name="description" content="Selim Yalınkılıç - Frontend Developer Portfolio" />
+	<title>Selim Yalınkılıç - Frontend Developer Portfolio</title>
+	<meta
+		name="description"
+		content="Professional Frontend Developer portfolio showcasing modern web development skills with React, Vue, Svelte, and TypeScript. Based in Istanbul, Turkey."
+	/>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />

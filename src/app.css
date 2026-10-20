@@ -1,22 +1,114 @@
 @import 'tailwindcss';
 
-/* Custom CSS */
-body {
-	font-family: 'Poppins', sans-serif;
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Renkler değişken olarak tutulur, koyu tema sadece değişkenleri değiştirir */
+:root {
+	--bg: #d9e9fb;
+	--card: #ffffff;
+	--fg: #14193a;
+	--muted: #4a5175;
+	--ink: #14193a;
+	--line: #c9d3ea;
+	--pink: #d93a6e;
+	--blue: #2f5fe0;
+	--orange: #ffb547;
+	--green: #14895a;
+	color-scheme: light;
 }
 
-/* Custom color palette */
-:root {
-	--primary: #6366f1;
-	--primary-dark: #4f46e5;
-	--secondary: #8b5cf6;
-	--accent: #f59e0b;
-	--success: #10b981;
-	--warning: #f59e0b;
-	--error: #ef4444;
-	--text-primary: #1f2937;
-	--text-secondary: #6b7280;
-	--bg-primary: #ffffff;
-	--bg-secondary: #f9fafb;
-	--bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.dark {
+	--bg: #0e1430;
+	--card: #18204a;
+	--fg: #eef1ff;
+	--muted: #a9b2d6;
+	--ink: #05081a;
+	--line: #2e3870;
+	--pink: #ff6b9a;
+	--blue: #5b8cff;
+	--orange: #ffb547;
+	--green: #2fbf7a;
+	color-scheme: dark;
+}
+
+@theme inline {
+	--color-bg: var(--bg);
+	--color-card: var(--card);
+	--color-fg: var(--fg);
+	--color-muted: var(--muted);
+	--color-ink: var(--ink);
+	--color-line: var(--line);
+	--color-pink: var(--pink);
+	--color-blue: var(--blue);
+	--color-orange: var(--orange);
+	--color-green: var(--green);
+	--font-display: 'Rubik', ui-sans-serif, system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+
+html {
+	background: var(--bg);
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--fg);
+	font-family: var(--font-mono);
+	transition:
+		background-color 0.35s,
+		color 0.35s;
+}
+
+/* Kalın çerçeveli pencere ve "basılabilir" düğme stili */
+@utility win {
+	border: 2px solid var(--ink);
+	border-radius: 18px;
+	background: var(--card);
+	box-shadow: 6px 6px 0 var(--ink);
+}
+
+@utility pop {
+	border: 2px solid var(--ink);
+	box-shadow: 4px 4px 0 var(--ink);
+	transition:
+		transform 0.15s,
+		box-shadow 0.15s;
+	&:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 6px 6px 0 var(--ink);
+	}
+	&:focus-visible {
+		outline: 3px solid var(--blue);
+		outline-offset: 3px;
+	}
+}
+
+.cursor-blink {
+	display: inline-block;
+	width: 0.55em;
+	height: 0.9em;
+	margin-left: 0.08em;
+	vertical-align: -0.05em;
+	background: var(--pink);
+	animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	.cursor-blink {
+		animation: none;
+	}
+	.pop:hover {
+		transform: none;
+	}
 }

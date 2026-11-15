@@ -66,7 +66,7 @@
 			name: 'Raf',
 			tagline: 'a shelf for everything you want to read later',
 			description:
-				'Chrome extension that saves any page in one click — title, tags, a note and a screenshot. Works fully offline or with an optional self-hosted server; adds a Telegram bot, video downloads, a form filler and a locator picker for test automation, plus 10 hand-made themes.',
+				'Chrome extension that saves any page in one click — title, tags, a note and a screenshot. Works fully offline or with an optional self-hosted server; adds a Telegram bot, video & image downloads, short links and a test-data form filler, plus 10 hand-made themes.',
 			image: '/images/projects/raf.webp',
 			imageAlt: 'Raf extension popup saving a blog post with tags and a note',
 			tags: ['chrome mv3', 'indexeddb', 'fastapi', 'sqlite fts5', 'cloudflare workers', 'd1'],

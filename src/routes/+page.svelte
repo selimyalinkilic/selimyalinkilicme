@@ -49,6 +49,35 @@
 		}
 	];
 
+	type Project = {
+		slug: string;
+		name: string;
+		tagline: string;
+		description: string;
+		image: string;
+		imageAlt: string;
+		tags: string[];
+		links: { label: string; href: string; primary?: boolean }[];
+	};
+
+	const projects: Project[] = [
+		{
+			slug: 'raf',
+			name: 'Raf',
+			tagline: 'a shelf for everything you want to read later',
+			description:
+				'Chrome extension that saves any page in one click — title, tags, a note and a screenshot. Works fully offline or with an optional self-hosted server; adds a Telegram bot, video downloads, a form filler and a locator picker for test automation, plus 10 hand-made themes.',
+			image: '/images/projects/raf.webp',
+			imageAlt: 'Raf extension popup saving a blog post with tags and a note',
+			tags: ['chrome mv3', 'indexeddb', 'fastapi', 'sqlite fts5', 'cloudflare workers', 'd1'],
+			links: [
+				{ label: 'website', href: 'https://selimyalinkilic.github.io/raf/', primary: true },
+				{ label: 'github', href: 'https://github.com/selimyalinkilic/raf' },
+				{ label: 'download', href: 'https://github.com/selimyalinkilic/raf/releases/latest' }
+			]
+		}
+	];
+
 	const commitColor = { feat: 'text-green', chore: 'text-orange', init: 'text-pink' };
 
 	const shadows = [
@@ -85,6 +114,7 @@
 			selim<span class="text-pink">@</span>web<span class="text-blue">:~</span>
 		</a>
 		<nav class="flex flex-wrap items-center gap-5 text-sm" aria-label="Main">
+			<a href="#projects" class="text-fg hover:text-pink">projects</a>
 			<a href="#log" class="text-fg hover:text-pink">experience</a>
 			<a href="#stack" class="text-fg hover:text-pink">stack</a>
 			<a href="#hi" class="text-fg hover:text-pink">say hi</a>
@@ -158,6 +188,73 @@
 					// that’s me, rendered
 				</figcaption>
 			</figure>
+		</section>
+
+		<section id="projects" class="flex scroll-mt-6 flex-col gap-5">
+			<h2 class="m-0 font-display text-[clamp(32px,4vw,48px)]">
+				<span class="text-pink">ls</span> ~/projects
+			</h2>
+			{#each projects as project (project.slug)}
+				<article class="win flex flex-col overflow-hidden">
+					<div
+						class="flex items-center gap-2 border-b-2 border-ink px-[18px] py-3.5"
+						aria-hidden="true"
+					>
+						<span class="size-[13px] rounded-full border-2 border-ink bg-pink"></span>
+						<span class="size-[13px] rounded-full border-2 border-ink bg-orange"></span>
+						<span class="size-[13px] rounded-full border-2 border-ink bg-green"></span>
+						<span class="ml-2.5 text-[13px] text-muted">~/projects/{project.slug}</span>
+					</div>
+					<div
+						class="grid items-center gap-8 p-6 sm:p-9"
+						style="grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr))"
+					>
+						<div class="flex flex-col gap-4">
+							<h3 class="m-0 font-display text-[clamp(30px,3.6vw,44px)] leading-none">
+								{project.name}
+							</h3>
+							<p class="m-0 font-bold text-blue">// {project.tagline}</p>
+							<p class="m-0 leading-[1.7] text-pretty">{project.description}</p>
+							<ul class="m-0 flex list-none flex-wrap gap-2 p-0 text-[13px]">
+								{#each project.tags as tag (tag)}
+									<li class="rounded-lg border-2 border-line px-2.5 py-1 text-muted">{tag}</li>
+								{/each}
+							</ul>
+							<div class="flex flex-wrap gap-3 pt-1">
+								{#each project.links as link (link.href)}
+									<a
+										href={link.href}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="pop inline-flex min-h-11 items-center rounded-full px-[18px] font-bold {link.primary
+											? 'bg-pink text-white'
+											: 'bg-card text-fg'}"
+									>
+										{link.label} ↗
+									</a>
+								{/each}
+							</div>
+						</div>
+						<a
+							href={project.links[0].href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="block"
+							tabindex="-1"
+							aria-hidden="true"
+						>
+							<img
+								src={project.image}
+								alt={project.imageAlt}
+								width="1280"
+								height="800"
+								loading="lazy"
+								class="block w-full -rotate-[1.5deg] rounded-[14px] border-2 border-ink shadow-[8px_8px_0_var(--pink)] transition-transform duration-200 hover:rotate-0"
+							/>
+						</a>
+					</div>
+				</article>
+			{/each}
 		</section>
 
 		<section id="log" class="flex scroll-mt-6 flex-col gap-5">

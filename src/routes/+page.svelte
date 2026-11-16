@@ -62,6 +62,25 @@
 
 	const projects: Project[] = [
 		{
+			slug: 'repo-graveyard',
+			name: 'Repo Graveyard',
+			tagline: 'a graveyard for the GitHub repos you abandoned',
+			description:
+				'Type a GitHub username and walk through a moonlit 3D graveyard. Every repo nobody has pushed to in a year gets a tombstone with its lifespan and a cause of death; stones grow moss and crack the longer they are neglected. You also get your death rate and a poster to share. It all runs in the browser, with no login and no server.',
+			image: '/images/projects/repo-graveyard.webp',
+			imageAlt:
+				'A 3D graveyard at night; each tombstone is engraved with the name of an abandoned GitHub repo',
+			tags: ['three.js', 'webgl', 'github api', 'vanilla js', 'canvas', 'github pages'],
+			links: [
+				{
+					label: 'website',
+					href: 'https://selimyalinkilic.github.io/repo-graveyard/',
+					primary: true
+				},
+				{ label: 'github', href: 'https://github.com/selimyalinkilic/repo-graveyard' }
+			]
+		},
+		{
 			slug: 'raf',
 			name: 'Raf',
 			tagline: 'a shelf for everything you want to read later',
